@@ -6,7 +6,7 @@ A classic four-in-a-row disc-drop game for CloudPhone feature phones. Beat the C
 1. Go to [CloudPhone Developer Page](https://www.cloudfone.com/my).
 2. Select **Add Widget**.
 3. Paste this Start URL:
-   `https://tasmon.github.io/four-in-a-row/`
+   `https://tasmon.github.io/Four-In-A-Raw/`
 4. Upload icons if required.
 5. Save and refresh - **Four In A Row** will appear on your CloudPhone.
 
@@ -21,30 +21,3 @@ A classic four-in-a-row disc-drop game for CloudPhone feature phones. Beat the C
 | Left soft key  | Open menu (Escape)        |
 | Right soft key | Back / close (native)     |
 
-## Pages
-
-- `index.html` — the game board (home screen)
-- `settings.html` — difficulty selection (Easy / Hard)
-- `about.html` — app name, version, developer
-- `help.html` — objective and controls
-
-## Files
-
-```
-index.html
-game.js
-settings.html
-settings.js
-about.html
-help.html
-common.js
-style.css
-icon.png
-README.md
-```
-
-All files are flat (no subfolders) so this repository can be published directly with GitHub Pages.
-
-## License
-
-Apache-2.0
