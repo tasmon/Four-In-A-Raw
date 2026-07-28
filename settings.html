@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=240, height=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Settings - Four In A Row</title>
+  <link rel="icon" href="icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>Settings</header>
+
+  <div id="app">
+    <h2>Difficulty</h2>
+    <p id="current-line">Current: Hard</p>
+
+    <button class="item" data-value="easy" type="button" tabindex="0">
+      <span class="title">Easy</span>
+      <span class="description">CPU occasionally misses blocks</span>
+    </button>
+    <button class="item" data-value="hard" type="button" tabindex="0">
+      <span class="title">Hard</span>
+      <span class="description">CPU always blocks and takes wins</span>
+    </button>
+  </div>
+
+  <footer>
+    <span id="softkey-left"></span>
+    <span id="softkey-center">Select</span>
+    <span id="softkey-right">Back</span>
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>

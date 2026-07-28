@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=240, height=320, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Four In A Row</title>
+  <link rel="icon" href="icon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>Four In A Row</header>
+
+  <div id="app">
+    <div id="game-status" role="status">Your turn</div>
+    <div id="board-wrap">
+      <div id="cursor-row"></div>
+      <div id="board"></div>
+    </div>
+  </div>
+
+  <!-- LSK options menu -->
+  <menu id="options-menu" hidden>
+    <button class="item" data-action="resume" type="button"><span class="title">Resume</span></button>
+    <button class="item" data-action="new" type="button"><span class="title">New Game</span></button>
+    <button class="item" data-action="settings" type="button"><span class="title">Settings</span></button>
+    <button class="item" data-action="help" type="button"><span class="title">Help</span></button>
+    <button class="item" data-action="about" type="button"><span class="title">About</span></button>
+  </menu>
+
+  <!-- Confirm restart -->
+  <div class="modal-backdrop" id="confirm-modal" hidden>
+    <div class="modal-box">
+      <h3>Start New Game?</h3>
+      <p>Current progress will be lost.</p>
+      <p class="modal-hint">Fire = Yes &middot; Menu = Cancel</p>
+    </div>
+  </div>
+
+  <!-- Win / lose / draw -->
+  <div class="modal-backdrop" id="gameover-modal" hidden>
+    <div class="modal-box">
+      <h3 id="gameover-title">You Win!</h3>
+      <p class="modal-hint">Press Fire to play again</p>
+    </div>
+  </div>
+
+  <!-- Pause -->
+  <div class="modal-backdrop" id="pause-modal" hidden>
+    <div class="modal-box">
+      <h3>Paused</h3>
+      <p class="modal-hint">Press 0 to resume</p>
+    </div>
+  </div>
+
+  <footer>
+    <span id="softkey-left">Menu</span>
+    <span id="softkey-center">Drop</span>
+    <span id="softkey-right">Back</span>
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

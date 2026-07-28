@@ -1,0 +1,367 @@
+/* Four In A Row — CloudPhone widget shared styles */
+
+:root {
+  --bg: #000;
+  --fg: #fff;
+  --accent: #1971e6;
+  --dim: #8a8a8a;
+  --disc-red: #e6413c;
+  --disc-yellow: #f4c430;
+  --board-bg: #0c1730;
+  --board-slot: #05070f;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ---------- Header ---------- */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 13pt;
+  background: #000;
+  border-bottom: 1px solid #222;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* ---------- Main content area ---------- */
+#app {
+  position: absolute;
+  top: 28px;
+  bottom: 32px;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  overflow-y: auto;
+  padding: 6px 8px;
+}
+
+/* ---------- Footer / softkey bar ---------- */
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  background: #000;
+  border-top: 1px solid #222;
+  color: var(--fg);
+  font-size: 9pt;
+  z-index: 2;
+}
+
+footer span {
+  flex: 1 1 33.3%;
+  padding: 0 6pt;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+footer #softkey-left {
+  text-align: left;
+}
+
+footer #softkey-center {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 8pt;
+  color: var(--dim);
+}
+
+footer #softkey-right {
+  text-align: right;
+}
+
+footer span:empty::before {
+  content: "\00a0";
+}
+
+/* ---------- Generic list / menu items (settings, help, options menu) ---------- */
+.item {
+  display: block;
+  width: 100%;
+  padding: 6pt 4pt;
+  background: transparent;
+  border: none;
+  color: var(--fg);
+  text-align: start;
+  font-size: 11pt;
+}
+
+.item .title {
+  display: block;
+  font-weight: bold;
+}
+
+.item .description {
+  display: block;
+  font-size: 9pt;
+  color: var(--dim);
+}
+
+.item.focused,
+.item:focus {
+  background: var(--accent);
+  outline: none;
+}
+
+h2 {
+  margin: 2pt 0 6pt;
+  font-size: 12pt;
+}
+
+p {
+  margin: 0 0 8pt;
+  font-size: 9pt;
+  line-height: 1.4;
+}
+
+/* ---------- Overlay menu (LSK menu) ---------- */
+menu {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 28px;
+  bottom: 32px;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  background: #000;
+  z-index: 10;
+}
+
+menu[hidden] {
+  display: none;
+}
+
+/* ---------- Modal (confirm / win / pause) ---------- */
+.modal-backdrop {
+  position: absolute;
+  top: 28px;
+  bottom: 32px;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.modal-backdrop[hidden] {
+  display: none;
+}
+
+.modal-box {
+  width: 90%;
+  max-width: 220px;
+  background: #111;
+  border: 1px solid var(--accent);
+  padding: 10pt;
+  text-align: center;
+}
+
+.modal-box h3 {
+  margin: 0 0 6pt;
+  font-size: 11pt;
+}
+
+.modal-box p {
+  margin: 0 0 8pt;
+  font-size: 9pt;
+}
+
+.modal-hint {
+  font-size: 8pt;
+  color: var(--dim);
+}
+
+/* ---------- Game board ---------- */
+#game-status {
+  text-align: center;
+  font-size: 9pt;
+  margin-bottom: 4px;
+  min-height: 12pt;
+}
+
+#board-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
+#cursor-row {
+  display: flex;
+  justify-content: center;
+}
+
+#cursor-row .cursor-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+#board {
+  display: grid;
+  background: var(--board-bg);
+  padding: 3px;
+  border-radius: 4px;
+}
+
+.slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slot .disc {
+  border-radius: 50%;
+  background: var(--board-slot);
+  width: 86%;
+  height: 86%;
+}
+
+.slot .disc.red {
+  background: var(--disc-red);
+}
+
+.slot .disc.yellow {
+  background: var(--disc-yellow);
+}
+
+/* ---------- QVGA (240x320-ish) ---------- */
+@media only screen and (min-width: 129px) and (max-width: 240px) {
+  header {
+    height: 30px;
+    line-height: 30px;
+    font-size: 12pt;
+  }
+
+  #app {
+    top: 30px;
+    bottom: 34px;
+    padding: 6px 4px;
+  }
+
+  footer {
+    height: 34px;
+    font-size: 8pt;
+  }
+
+  .cell-size-cfg {
+    --cell: 30px;
+  }
+
+  #board {
+    grid-template-columns: repeat(7, 30px);
+    grid-template-rows: repeat(6, 30px);
+    gap: 2px;
+  }
+
+  #cursor-row .cursor-cell {
+    width: 30px;
+    font-size: 12pt;
+  }
+}
+
+/* ---------- QQVGA (128x160) ---------- */
+@media only screen and (max-width: 128px) {
+  header {
+    height: 18px;
+    line-height: 18px;
+    font-size: 7pt;
+  }
+
+  #app {
+    top: 18px;
+    bottom: 18px;
+    padding: 2px;
+  }
+
+  footer {
+    height: 18px;
+    font-size: 5.5pt;
+  }
+
+  footer span {
+    padding: 0 2pt;
+  }
+
+  #board {
+    grid-template-columns: repeat(7, 15px);
+    grid-template-rows: repeat(6, 15px);
+    gap: 1px;
+  }
+
+  #cursor-row .cursor-cell {
+    width: 15px;
+    font-size: 7pt;
+  }
+
+  .item {
+    padding: 3pt 2pt;
+    font-size: 8pt;
+  }
+
+  .item .description {
+    font-size: 6.5pt;
+  }
+
+  h2 {
+    font-size: 8pt;
+  }
+
+  p {
+    font-size: 6.5pt;
+  }
+}
+
+/* Fallback board sizing for anything wider than QVGA (desktop testing) */
+@media only screen and (min-width: 241px) {
+  #board {
+    grid-template-columns: repeat(7, 34px);
+    grid-template-rows: repeat(6, 34px);
+    gap: 3px;
+  }
+
+  #cursor-row .cursor-cell {
+    width: 34px;
+    font-size: 14pt;
+  }
+}
